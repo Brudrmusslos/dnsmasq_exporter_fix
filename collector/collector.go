@@ -196,6 +196,7 @@ func queryDnsmasq(questionBind string, c *Collector, ch chan<- prometheus.Metric
 		MsgHdr: dns.MsgHdr{
 			Id:               dns.Id(),
 			RecursionDesired: true,
+			AuthenticatedData: true,
 		},
 		Question: []dns.Question{
 			question(questionBind),
